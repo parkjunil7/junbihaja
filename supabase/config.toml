@@ -1,0 +1,4 @@
+project_id = "junbihaja"
+
+[functions.wedding-compare]
+verify_jwt = false
