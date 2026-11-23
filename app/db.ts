@@ -1,5 +1,5 @@
 import {createClient} from "@supabase/supabase-js";
-import {blank, type Band, type Details} from "./model";
+import {blank, type Band, type Details, type ReviewField} from "./model";
 
 export const db=createClient("https://gqttecguoftuwjanunry.supabase.co","sb_publishable__jUouUzu2s-Jz90sPUP-sA_fgTynadc",{auth:{storageKey:"junbihaja-session"}});
 const columns="id, details, version, has_photo";
@@ -26,4 +26,11 @@ export async function saveCandidate(id:string,version:number,details:Details,pho
   if(error?.code==="23505"||(!error&&!data))throw Error("다른 창에서 먼저 저장했어요. 닫고 새로고침해 주세요.");
   if(error||!data)throw Error("저장하지 못했어요. 연결과 로그인 상태를 확인해 주세요.");
   return unpack(data);
+}
+export async function memberReviewField(memberId:string):Promise<ReviewField> {
+  const {data,error}=await db.from("members").select("slot").eq("user_id",memberId).single();
+  if(error)throw error;
+  if(data.slot===1)return "review1";
+  if(data.slot===2)return "review2";
+  throw Error("후기 작성자 정보를 확인하지 못했어요.");
 }

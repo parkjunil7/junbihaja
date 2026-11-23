@@ -1,11 +1,11 @@
 import {readTray,writeTray,type Tray} from "./tray";
-import {listCandidates} from "./db";
+import {listCandidates,memberReviewField} from "./db";
 import {CandidatePhoto} from "./photo";
 import {useEffect,useRef,useState} from "react";
 import {Plus, Columns2, Check, X, Camera, RefreshCw, LogOut, BookOpen} from "lucide-react";
 import Editor from "./editor";
 import QuoteTable from "./quote-table";
-import {bandName,priceLabel,type Band} from "./model";
+import {bandName,priceLabel,type ReviewField,type Band} from "./model";
 import {categoryNames,stageNames} from "./categories";
 
 function DateChip({date}:{date:string}) {
@@ -17,14 +17,15 @@ export default function Studio({memberId,onLogout}:{memberId:string,onLogout:()=
   const [rows,setRows]=useState<Band[]>([]),[view,setView]=useState<"list"|"compare">("list");
   const [edit,setEdit]=useState<Band|null|undefined>(),[pending,setPending]=useState(true),[failed,setFailed]=useState(false),[notice,setNotice]=useState("");
   const [tray,setTray]=useState<Tray|null>(null),[savingTray,setSavingTray]=useState(false);
+  const [reviewField,setReviewField]=useState<ReviewField|null>(null);
   const selected=tray?.candidate_ids??[];
   const sequence=useRef(0),writing=useRef(false);
   async function load(){
     if(writing.current)return;
     const serial=++sequence.current;
     try{
-      const [data,savedTray]=await Promise.all([listCandidates(),readTray(memberId)]);
-      if(serial===sequence.current){setRows(data);setTray(savedTray);setFailed(false);}
+      const [data,savedTray,field]=await Promise.all([listCandidates(),readTray(memberId),memberReviewField(memberId)]);
+      if(serial===sequence.current){setRows(data);setTray(savedTray);setReviewField(field);setFailed(false);}
     }catch{if(serial===sequence.current)setFailed(true);}finally{if(serial===sequence.current)setPending(false);}
   }
   useEffect(()=>{void load();window.addEventListener("focus",load);return()=>{sequence.current++;window.removeEventListener("focus",load);};},[memberId]);
@@ -85,6 +86,6 @@ export default function Studio({memberId,onLogout}:{memberId:string,onLogout:()=
     {chosen.length>0&&<button className="icon" disabled={savingTray||failed} onClick={()=>void persist([])} aria-label="비교함 비우기"><X size={15}/></button>}
     <button className="primary" disabled={chosen.length<2} onClick={()=>nav("compare")}>견적 대조표 보기</button></aside></section></div>:
     pending?<p className="statebox" role="status">비교함을 불러오는 중이에요.</p>:failed?<div className="statebox" role="alert">비교함을 불러오지 못했어요. <button className="linkbtn" onClick={load}>다시 시도</button></div>:<QuoteTable saving={savingTray} chosen={chosen} all={rows} onAdd={toggle} onRemove={toggle} onEdit={setEdit} onBack={()=>nav("list")}/>}
-  </main>{edit!==undefined&&<Editor row={edit} initialCategory={category} categories={categories} peers={rows} close={()=>setEdit(undefined)} saved={saved}/>}
+  </main>{edit!==undefined&&<Editor reviewField={reviewField} row={edit} initialCategory={category} categories={categories} peers={rows} close={()=>setEdit(undefined)} saved={saved}/>}
   <div className={notice?"toast":"sr"} role="status">{notice}</div></>;
 }

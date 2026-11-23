@@ -1,7 +1,7 @@
 import ComparisonNote from "./comparison-note";
 import {CandidatePhoto} from "./photo";
 import {Camera, Pencil, X} from "lucide-react";
-import {bandName,priceLabel,type Band} from "./model";
+import {bandName,priceLabel,reviewLabels,type Band} from "./model";
 import {categoryProfile,readCriteria,ringCategory} from "./categories";
 
 type Props={saving:boolean,chosen:Band[],all:Band[],onAdd:(id:string)=>void,onRemove:(id:string)=>void,onEdit:(b:Band)=>void,onBack:()=>void};
@@ -23,6 +23,6 @@ export default function QuoteTable({saving,chosen,all,onAdd,onRemove,onEdit,onBa
     <tbody>{common(ring?"한 쌍 견적":"예상 견적","price")}{common("추가금·포함 사항","extras")}
     {labels.map(label=><tr key={"custom-"+label}><th scope="row">{label}</th>{chosen.map((b,i)=><td key={b.id} className={custom[i].get(label)?"":"missing"}>{custom[i].get(label)||"확인 필요"}</td>)}</tr>)}
     {common("방문 예정일","visitDate","미정")}{common("상태","stage")}{common(ring?"매장":"업체·지점","store")}{common(profile.material,"material")}
-    {common(profile.delivery,"delivery")}{common(profile.care,"care")}{common(ring?"나의 착용 후기":"나의 의견","review1")}{common(ring?"짝꿍의 착용 후기":"짝꿍의 의견","review2")}{common("관련 링크","url")}</tbody>
+    {common(profile.delivery,"delivery")}{common(profile.care,"care")}{common(reviewLabels.review2,"review2","아직 작성 전")}{common(reviewLabels.review1,"review1","아직 작성 전")}{common("관련 링크","url")}</tbody>
     </table></div>{chosen.length>=2&&<ComparisonNote key={chosen.map(b=>b.id+":"+b.version).join(",")} chosen={chosen}/>}</section>;
 }

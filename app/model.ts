@@ -25,3 +25,5 @@ export function validate(fields:Details, hasPhoto:boolean) {
   if (Object.entries(fields).some(([key,v])=>key!=="criteria" && v.length>2000)) return "각 입력란은 2,000자 이내로 작성해 주세요.";
   return "";
 }
+export const reviewLabels = {review1:"준일후기",review2:"지영후기"} as const;
+export type ReviewField = keyof typeof reviewLabels;

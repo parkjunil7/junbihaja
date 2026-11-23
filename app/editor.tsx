@@ -3,7 +3,7 @@ import {usePhoto} from "./photo";
 "use client";
 import {useEffect,useRef,useState} from "react";
 import {Camera, X} from "lucide-react";
-import {blank,validate,type Band,type Details} from "./model";
+import {blank,validate,reviewLabels,type ReviewField,type Band,type Details} from "./model";
 import {categoryProfile,readCriteria,ringCategory,stageNames,type Criterion} from "./categories";
 
 async function shrinkPhoto(file:File) {
@@ -19,12 +19,13 @@ async function shrinkPhoto(file:File) {
   } finally {URL.revokeObjectURL(url);}
 }
 
-export default function Editor({row,initialCategory,categories,peers,close,saved}:{row:Band|null,initialCategory:string,categories:string[],peers:Band[],close:()=>void,saved:(b:Band)=>void}) {
+export default function Editor({reviewField,row,initialCategory,categories,peers,close,saved}:{reviewField:ReviewField|null,row:Band|null,initialCategory:string,categories:string[],peers:Band[],close:()=>void,saved:(b:Band)=>void}) {
   const dialog=useRef<HTMLDialogElement>(null);
   const [id]=useState(()=>row?.id??crypto.randomUUID());
   const [draft,setDraft]=useState<Details>(row??{...blank,category:initialCategory});
   const [custom,setCustom]=useState(false);
   const [attributes,setAttributes]=useState<Criterion[]>(row?readCriteria(row.criteria):[]);
+  const partnerField=reviewField==="review1"?"review2":"review1";
   const profile=categoryProfile(draft.category);
   const ring=draft.category===ringCategory;
   const suggested=[...new Set([...profile.criteria,...peers.filter(b=>b.category===draft.category).flatMap(b=>readCriteria(b.criteria).map(c=>c.label))])];
@@ -50,6 +51,7 @@ export default function Editor({row,initialCategory,categories,peers,close,saved
     e.preventDefault(); if(saving||reading)return;
     const fields={...blank};
     for(const k of Object.keys(blank) as (keyof Details)[]) fields[k]=draft[k].trim();
+    for(const key of ["review1","review2"] as const)if(key!==reviewField)fields[key]=row?.[key]??"";
     fields.criteria=JSON.stringify(attributes.filter(c=>c.value.trim() || extraLabels.includes(c.label)));
     const issue=validate(fields,!!photo||!!(row?.hasPhoto&&!removed));
     if(issue){setError(issue);return;}
@@ -74,7 +76,10 @@ export default function Editor({row,initialCategory,categories,peers,close,saved
     {input("visitDate","방문 예정일 (선택)","","date")}
     <details open={row?true:undefined}><summary>{ring?"착용 후기와 상담 기록":"견적·비교 기준·두 사람의 의견"}</summary>
       {input("material",profile.material)}
-      <div className="formgrid">{(["review1","review2"] as const).map((k,i)=><label key={k}>{i===0?"나의":"짝꿍의"} {ring?"착용 후기":"의견"}<textarea value={draft[k]} maxLength={2000} placeholder="마음에 든 점과 고민되는 점" onChange={e=>update(k,e.target.value)}/></label>)}</div>
+      {reviewField?<div className="formgrid">
+        <label>{reviewLabels[reviewField]}<textarea value={draft[reviewField]} maxLength={2000} placeholder="마음에 든 점과 고민되는 점" onChange={e=>update(reviewField,e.target.value)}/></label>
+        <div className="partnerReview"><strong>{reviewLabels[partnerField]}</strong><p>{draft[partnerField]||"아직 작성한 후기가 없어요."}</p></div>
+      </div>:<p className="hint">후기 작성자 정보를 확인하는 중이에요.</p>}
       <label>{ring?"한 쌍 견적":"예상 견적"} (원)<input inputMode="numeric" pattern="[0-9]{1,10}" maxLength={10} value={draft.price} placeholder="견적 전이라면 비워 두세요" onChange={e=>update("price",e.target.value)}/></label>
       {input("extras","추가금·포함 사항")}
       <div className="formgrid">{input("delivery",profile.delivery)}{input("care",profile.care)}</div>

@@ -4,6 +4,7 @@ const originList=new Set(["https://parkjunil7.github.io","http://localhost:5173"
 const url=Deno.env.get("SUPABASE_URL")!;
 const options={auth:{persistSession:false,autoRefreshToken:false}};
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const reviewLabels:Record<string,string>={review1:"준일후기",review2:"지영후기"};
 const fields=["category","name","price","extras","material","delivery","care","store","stage","visitDate","review1","review2","criteria"];
 Deno.serve(async request=>{
   const origin=request.headers.get("origin");
@@ -29,7 +30,7 @@ Deno.serve(async request=>{
     if(error||data.length!==ids.length)return reply(400,{error:"선택한 후보를 확인해 주세요."});
     const candidates=ids.map(id=>data.find(r=>r.id===id)!.details);
     if(new Set(candidates.map(c=>c.category)).size!==1)return reply(400,{error:"같은 준비 항목만 비교할 수 있어요."});
-    const notes=candidates.map(candidate=>Object.fromEntries(fields.filter(k=>typeof candidate[k]==="string"&&candidate[k]).map(k=>[k,candidate[k].slice(0,2000)])));
+    const notes=candidates.map(candidate=>Object.fromEntries(fields.filter(k=>typeof candidate[k]==="string"&&candidate[k]).map(k=>[reviewLabels[k]??k,candidate[k].slice(0,2000)])));
     const apiKey=Deno.env.get("OPENAI_API_KEY");
     if(!apiKey)return reply(503,{error:"서버의 AI 연결 설정을 확인해 주세요."});
     const admin=createClient(url,Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,options);
