@@ -1,0 +1,93 @@
+.gardenLogin {
+  --leaf: #204c2e;
+  --paper: #fcf8ef;
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: clamp(16px, 4vw, 56px);
+  background: radial-gradient(ellipse at 75% 80%, #eaf3e4, #e0eddc);
+  color: var(--leaf);
+}
+.gardenCard {
+  width: min(100%, 1050px);
+  display: grid;
+  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+  border-radius: clamp(20px, 3vw, 35px);
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 0 14px 38px -15px #42633e55, 0 0 0 1px #69865214;
+}
+.gardenPoster {
+  position: relative;
+  align-self: stretch;
+  display: grid;
+  align-items: center;
+  background: #ebeed4;
+}
+.gardenPoster img { display: block; width: 100%; height: auto; }
+.gardenPoster::after {
+  content: "";
+  position: absolute;
+  inset: 0 -1px 0 auto;
+  width: 5px;
+  background: radial-gradient(circle at right, var(--paper) 2.4px, transparent 3px) right top / 100% 14px repeat-y;
+}
+.gardenForm {
+  display: grid;
+  align-content: center;
+  min-width: 0;
+  padding: clamp(22px, 4vw, 52px);
+  border-top: 7px solid #869d54;
+  background: linear-gradient(125deg, #fffaf3, #f8f5ec);
+}
+.gardenForm form { display: grid; gap: clamp(15px, 2.1vw, 26px); }
+.gardenForm label {
+  display: block;
+  margin: 0 0 8px;
+  font: 700 1.14rem/1.4 "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  color: var(--leaf);
+}
+.gardenForm input {
+  display: block;
+  width: 100%;
+  margin: 0;
+  min-height: 50px;
+  border: 1px solid #a2b09c;
+  border-radius: 9px;
+  background: #fffefd;
+  padding: 10px 12px;
+  color: #233d2a;
+}
+.gardenPassword { position: relative; }
+.gardenPassword input { padding-right: 48px; }
+.gardenPassword button {
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  color: var(--leaf);
+}
+.gardenSubmit {
+  min-height: 52px;
+  border-radius: 9px;
+  background: var(--leaf);
+  color: white;
+  font-size: 1.16rem;
+  font-weight: 700;
+}
+.gardenSubmit:enabled:hover { background: #163c25; }
+.gardenSubmit:disabled { opacity: .7; }
+.gardenLogin :focus-visible { outline: 3px solid #608346; outline-offset: 2px; }
+.gardenHint { margin: -6px 0 0; text-align: center; color: #566954; font-size: .88rem; }
+@media (max-width: 640px) {
+  .gardenLogin { padding: 14px; }
+  .gardenCard { grid-template-columns: 1fr; max-width: 390px; }
+  .gardenPoster img { width: 100%; }
+  .gardenPoster::after { display: none; }
+  .gardenForm { padding: 20px 24px; border-top-width: 4px; }
+  .gardenForm form { gap: 14px; }
+  .gardenForm label { font-size: 1rem; margin-bottom: 5px; }
+  .gardenForm input, .gardenSubmit { min-height: 46px; }
+}
