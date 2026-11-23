@@ -53,7 +53,7 @@ export default function Studio({onLogout}:{onLogout:()=>Promise<void>}) {
     <button aria-current={view==="compare"?"page":undefined} onClick={()=>nav("compare")}><Columns2 size={17}/>대조표</button>
     <button aria-label="로그아웃" title="로그아웃" onClick={()=>onLogout().catch(()=>setNotice("로그아웃하지 못했어요. 다시 시도해 주세요."))}><LogOut size={17}/></button>
   </nav></div></header><main className="wrap">
-  {view==="list"?<div className="tourGrid"><aside className="tourSide"><section className="tourCover"><p>준비하자</p><h1>웨딩 투어</h1><img src="./passport.webp" alt="여권과 청첩장을 챙긴 두 여행 고양이"/><div>우리 둘의 웨딩 여권</div></section>
+  {view==="list"?<div className="tourGrid"><aside className="tourSide"><section className="tourCover"><h1>웨딩 투어</h1><img src="./garden-notebook.webp" width="900" height="600" alt="데이지 정원에서 웨딩 노트를 펼쳐 보는 두 고양이"/></section>
     <section className="nextVisit"><h2>다음 방문</h2>{upcoming?<button onClick={()=>openDetail(upcoming)}><DateChip date={upcoming.visitDate}/><span>{bandName(upcoming)}</span></button>:<p>아직 정해진 방문일이 없어요.</p>}</section></aside>
   <section className="tourStops"><div className="sectionhead"><h2>방문할 후보 <span>{categoryRows.length}</span></h2><button className="primary" onClick={()=>setEdit(null)}><Plus size={17}/>후보 추가</button></div>
   <div className="tourFilters"><label>준비 항목<select value={category} onChange={e=>selectCategory(e.target.value)}><option value="">모든 준비 항목</option>{categories.map(c=><option key={c}>{c}</option>)}</select></label>

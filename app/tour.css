@@ -1,7 +1,142 @@
-:root{--ink:#233e53;--muted:#546b78;--plum:#176181;--tint:#e2f2f7;--line:#bed6df;color:#233e53}
-body{background:#e3f4fa;color:var(--ink)}.top{background:#f9fcfd;border-color:#bed6df}.bar{height:63px}.brand{font:800 1.45rem/1.2 "Malgun Gothic","Apple SD Gothic Neo",sans-serif;letter-spacing:-.08em;color:#24485f}.bar nav button[aria-current]{background:#dceff5;color:#134e67}.primary,.comparebtn{background:#176181}.primary:hover,.comparebtn:enabled:hover{background:#104a64}.soft,.linkbtn,.icon,.product{color:#21546e}.soft{border-color:#adc8d5}.sectionlabel{color:#496f81}h1,h2,h3{letter-spacing:-.055em}.wrap,.bar{width:min(1110px,91%)}.wrap{padding-top:29px}.icon:hover{background:#dceef5}.hint,.tray p,.statebox p{color:#526b78}.statebox{border:1px dashed #92b6c6;background:#f9fcfa}.formfoot .soft{background:#f9fcfd}input,textarea,select{border-color:#b3cbd5}.photo-picker{border-color:#8eacba}.criterion-input button{border-color:#b5cbd5}.toast{background:#264c60}
-.skyGate{display:grid;place-items:center;min-height:100svh;padding:30px 5%;background-color:#d8f0f8;background-image:repeating-linear-gradient(-35deg,transparent 0 30px,#effaff55 30px 31px)}.gatePass{width:min(800px,100%);overflow:hidden;background:#fffdf6;border:2px solid #72afc2;border-radius:22px;box-shadow:0 6px 0 #a2ceda}.gateArt{display:flex;justify-content:space-between;align-items:center;padding-left:8%;gap:12px;background:#9ce1fb}.gateArt img{width:38%;aspect-ratio:1;object-fit:contain;mask-image:linear-gradient(90deg,transparent,#000 8%)}.gateArt strong{font-weight:800;letter-spacing:-.06em}.gateArt h1{font-size:clamp(40px,6vw,74px);letter-spacing:-.08em;line-height:1.13;margin:8px 0 5px}.gateArt p{color:#365d70}.gateForm{padding:18px 6% 25px;border-top:2px dashed #a3c2cb}.gateForm h2{font-size:20px;margin-bottom:10px}.gateForm form{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}.gateForm label{flex:1 1 140px;margin:0;min-width:0}.gateForm form p{width:100%;font-size:.92rem;color:var(--muted);margin-bottom:5px}.gateForm .primary{min-height:46px}.gateForm input{background:#fff;border-radius:7px}
-.tourGrid{display:grid;grid-template-columns:minmax(240px,.68fr) minmax(0,1.32fr);align-items:start;gap:clamp(20px,3vw,40px)}.tourCover{background:#a2e3f8;overflow:hidden;border-left:9px solid #276584;border-radius:8px 26px 26px 8px;box-shadow:0 5px 0 #9dc5d0;text-align:center;padding-top:23px}.tourCover>p{font-weight:750;letter-spacing:-.045em}.tourCover h1{font-weight:800;font-size:clamp(35px,4.7vw,60px);line-height:1.23;letter-spacing:-.085em;margin:3px 0 5px}.tourCover img{display:block;width:100%;max-height:285px;object-fit:contain}.tourCover>div{color:white;background:#276584;padding:10px;font-weight:650}.nextVisit{margin-top:20px;padding:17px 20px;border:1px solid var(--line);border-radius:11px;background:#f8fcfb}.nextVisit h2{font-size:1.04rem}.nextVisit p{font-size:.94rem;color:var(--muted);margin-top:5px}.nextVisit button{margin-top:9px;justify-content:flex-start;text-align:left;width:100%;gap:14px;font-weight:650;overflow-wrap:anywhere}.tourStops{min-width:0}.tourStops>.sectionhead h2{font-size:1.55rem}.tourFilters,.quoteTools{display:flex;align-items:flex-end;gap:10px;margin:15px 0}.tourFilters label,.quoteTools label{display:grid;gap:3px;font-size:.84rem;color:var(--muted)}.tourFilters label:first-child{flex:1}.tourFilters select,.quoteTools select{min-height:40px;padding:5px 9px}.visitGroup{margin:18px 0}.visitGroup h3{color:#486778;font-size:.93rem;margin:0 0 8px}.stopTicket{background:#fffdf6;border:1px solid #b0ccd6;border-radius:11px;box-shadow:0 2px 0 #c1dce4;margin-bottom:11px;overflow:hidden}.stopBody{padding:12px;display:grid;grid-template-columns:64px 1fr 70px;width:100%;text-align:left;gap:14px;align-items:center;justify-content:stretch}.stopBody:hover,.ticketActions button:hover{background:#eef7f7}.dateChip{display:grid;text-align:center;line-height:1.16;color:#24546d}.dateChip small{font-size:14px}.dateChip b{font:700 32px/1.1 Georgia,serif}.undated b{font-family:inherit;font-size:17px;font-weight:650;line-height:1.4}.stopBody>.dateChip{border-right:2px dashed #bcd0d7;padding-right:8px}.stopText{display:grid;gap:2px;overflow-wrap:anywhere}.stopText small,.stopText>span{font-size:14px;color:#536d7a}.stopText strong{font-size:1.22rem;letter-spacing:-.05em}.stopBody>img,.stopBlank{width:70px;height:62px;border-radius:5px;object-fit:cover}.stopBlank,.noPhoto{display:grid;place-content:center;background:#e2edf0;color:#57707e}.stopControls{display:flex;justify-content:flex-end;gap:5px;border-top:1px solid #dbe8ea;padding:3px 9px}.stopControls button,.ticketActions button{min-height:34px;font-size:.86rem;color:#24546d}.stopControls [aria-pressed=true]{font-weight:700}.compareDock{display:flex;align-items:center;gap:8px;background:#f6fbfb;border:1px solid #b9d0da;border-radius:12px;padding:14px 17px;margin-top:19px}.compareDock>div{flex:1;min-width:0}.compareDock p{font-size:.86rem;color:#536d7a;overflow-wrap:anywhere}
-.backLink{color:#24546d;border-bottom:1px solid #648b9c;padding:2px 0;font-size:.93rem}.quoteHeading{display:flex;align-items:center;justify-content:space-between;gap:15px;background:#a4e3f8;border:1px solid #a3c8d5;border-radius:13px 13px 0 0;padding:13px 3%;margin:17px 0 0}.quoteHeading .sectionlabel{margin:0}.quoteHeading h1{font-size:clamp(27px,4vw,47px);line-height:1.2;color:#24485f}.quoteHeading img{width:90px;height:90px;border-radius:50%}.quoteTools{margin:0;padding:9px 3%;justify-content:space-between;align-items:center;background:#f6fbfb;border:1px solid var(--line);border-top:2px dashed #a4c3cf;flex-wrap:wrap}.quoteTools label{display:flex;align-items:center}.ticketTable{border-radius:0 0 12px 12px;border-top:0}.ticketTable table{table-layout:fixed;background:#fffdf6}.ticketTable th,.ticketTable td{min-width:0;border-color:#d1e2e7}.ticketTable th:first-child{width:clamp(94px,15vw,170px);background:#eef6f7}.ticketTable thead th{background:#f8fbf9;color:#254759;vertical-align:bottom;border-bottom:2px dashed #a9c4cb}.ticketTable thead th+th,.ticketTable td+td{border-left:1px solid #d4e1e3}.ticketHead{display:grid;gap:6px;text-align:left}.ticketHead>img,.noPhoto{width:100%;height:clamp(66px,10vw,115px);border-radius:6px;object-fit:cover}.noPhoto{font-size:13px;justify-items:center;gap:3px;font-weight:400}.ticketHead strong{font-size:1.1rem;overflow-wrap:anywhere}.ticketActions{display:flex;gap:8px;flex-wrap:wrap}.ticketActions button{padding:0}.ticketTable:has(th:nth-child(4)) table{min-width:650px}.ticketTable:has(th:nth-child(3)) table{min-width:440px}
-@media(max-width:700px){.bar,.wrap{width:92%}.wrap{padding-top:17px}.tourGrid{grid-template-columns:1fr;gap:18px}.tourCover{position:relative;text-align:left;min-height:125px;padding:16px 40% 15px 18px}.tourCover h1{font-size:36px}.tourCover img{position:absolute;right:0;top:0;width:37%;height:100%}.tourCover>div{color:inherit;background:none;padding:0;font-size:14px}.tourCover>p{display:none}.nextVisit{padding:8px 12px;margin-top:9px;display:flex;align-items:center;gap:10px}.nextVisit button{margin:0;flex:1}.nextVisit .dateChip{display:inline-flex;gap:3px;align-items:center}.nextVisit .dateChip b{font:650 15px/1.2 sans-serif}.nextVisit p{margin:0}.stopBody{grid-template-columns:48px 1fr 52px;gap:9px}.stopBody>img,.stopBlank{width:52px;height:52px}.compareDock{flex-wrap:wrap;padding:10px}.compareDock .primary{padding:8px 10px}.quoteHeading img{width:60px;height:60px}.ticketTable td,.ticketTable th{padding:9px}.tourFilters{gap:6px}.tourFilters select{font-size:.92rem}.skyGate{padding:16px 4%}.gateArt{padding-left:6%}.gateArt img{width:44%}.gateArt h1{font-size:37px}.gateForm form{display:grid}.gateForm{padding:16px 6% 22px}.gateArt p{font-size:.9rem}}
-.aiNote{margin:20px 0;padding:20px;background:#fffdf6;border:1px solid var(--line);border-radius:12px}.aiNote h2{font-size:1.15rem}.aiNote p{margin:8px 0 12px}.aiAnswer{white-space:pre-wrap}
+:root {
+  --ink: #293f2e;
+  --muted: #546952;
+  --plum: #234e34;
+  --tint: #e7efd9;
+  --line: #cbd6c2;
+  --paper: #fffdf7;
+  --sage: #edf2e6;
+  --accent: #879d55;
+  color: var(--ink);
+}
+body { color: var(--ink); background: radial-gradient(ellipse at 75% 20%, #f3f6eb, #e5eedf); min-height: 100vh; }
+h1, h2, h3 { letter-spacing: -.055em; }
+.top { background: #fcfbf4; border-color: var(--line); }
+.wrap, .bar { width: min(1110px, 91%); }
+.wrap { padding-top: 29px; }
+.bar { height: 63px; }
+.brand {
+  color: var(--plum);
+  font: 800 1.45rem/1.2 "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  letter-spacing: -.08em;
+}
+.bar nav button[aria-current], .icon:hover { background: var(--tint); color: var(--plum); }
+.primary:hover, .comparebtn:enabled:hover { background: #173c25; }
+.primary:disabled, .stopControls button:disabled { background: #e7ebdf; color: #66725e; }
+.soft, .linkbtn, .icon, .product, .sectionlabel { color: var(--plum); }
+.soft, input, textarea, select, .photo-picker, .criterion-input button { border-color: #aab9a0; }
+.statebox { border: 1px dashed #aabb9c; background: var(--paper); }
+.toast { background: var(--plum); }
+:focus-visible, button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline-color: #65854c; }
+.tourGrid {
+  display: grid;
+  grid-template-columns: minmax(240px, .68fr) minmax(0, 1.32fr);
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+}
+.tourCover {
+  overflow: hidden;
+  border: 1px solid #bfceae;
+  border-top: 6px solid var(--accent);
+  border-radius: 19px;
+  background: #e0e6c7;
+  box-shadow: 0 5px 14px #34532b12;
+}
+.tourCover h1 {
+  padding: 17px 20px 12px;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.18;
+  color: var(--plum);
+}
+.tourCover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  mask-image: linear-gradient(to bottom, transparent, black 12%);
+}
+.nextVisit, .compareDock, .aiNote {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+}
+.nextVisit { margin-top: 18px; padding: 17px 20px; }
+.nextVisit h2 { font-size: 1.04rem; }
+.nextVisit p { font-size: .94rem; color: var(--muted); margin-top: 5px; }
+.nextVisit button { margin-top: 8px; justify-content: flex-start; text-align: left; width: 100%; gap: 14px; font-weight: 650; overflow-wrap: anywhere; }
+.tourStops { min-width: 0; }
+.tourStops > .sectionhead h2 { font-size: 1.55rem; }
+.tourFilters, .quoteTools { display: flex; align-items: flex-end; gap: 10px; margin: 15px 0; }
+.tourFilters label, .quoteTools label { display: grid; gap: 3px; font-size: .86rem; color: var(--muted); }
+.tourFilters label:first-child { flex: 1; }
+.tourFilters select, .quoteTools select { min-height: 40px; padding: 5px 9px; }
+.visitGroup { margin: 18px 0; }
+.visitGroup h3 { color: var(--muted); font-size: .94rem; margin: 0 0 8px; }
+.stopTicket { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 11px; overflow: hidden; box-shadow: 0 2px 0 #ccd9c530; }
+.stopBody { padding: 12px; display: grid; grid-template-columns: 64px 1fr 70px; width: 100%; text-align: left; gap: 14px; align-items: center; justify-content: stretch; }
+.stopBody:hover, .ticketActions button:hover { background: #f0f4e9; }
+.dateChip { display: grid; text-align: center; line-height: 1.16; color: var(--plum); }
+.dateChip small { font-size: 14px; }
+.dateChip b { font: 700 32px/1.1 Georgia, serif; }
+.undated b { font: inherit; font-size: 17px; font-weight: 650; line-height: 1.4; }
+.stopBody > .dateChip { border-right: 1px dashed #aebda1; padding-right: 8px; }
+.stopText { display: grid; gap: 2px; overflow-wrap: anywhere; }
+.stopText small, .stopText > span { font-size: 14px; color: var(--muted); }
+.stopText strong { font-size: 1.22rem; letter-spacing: -.05em; }
+.stopBody > img, .stopBlank { width: 70px; height: 62px; border-radius: 6px; object-fit: cover; }
+.stopBlank, .noPhoto { display: grid; place-content: center; background: var(--sage); color: var(--muted); }
+.stopControls { display: flex; justify-content: flex-end; gap: 5px; border-top: 1px solid #e3e8db; padding: 3px 9px; }
+.stopControls button, .ticketActions button { min-height: 34px; font-size: .87rem; color: var(--plum); }
+.stopControls [aria-pressed=true] { font-weight: 700; }
+.compareDock { display: flex; align-items: center; gap: 8px; padding: 14px 17px; margin-top: 19px; }
+.compareDock > div { flex: 1; min-width: 0; }
+.compareDock p { font-size: .88rem; color: var(--muted); overflow-wrap: anywhere; }
+.backLink { color: var(--plum); border-bottom: 1px solid #819674; padding: 2px 0; font-size: .94rem; }
+.quoteHeading {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; background: #e1e7cd; overflow: hidden; border: 1px solid var(--line);
+  border-top: 5px solid var(--accent); border-radius: 16px 16px 0 0;
+  padding-left: 3%; margin: 17px 0 0;
+}
+.quoteHeading h1 { padding: 14px 0; font-size: clamp(25px, 4vw, 44px); line-height: 1.2; color: var(--plum); }
+.quoteHeading img { flex: none; width: clamp(100px, 18%, 188px); height: auto; mask-image: linear-gradient(to right, transparent, black 23%); }
+.quoteTools { margin: 0; padding: 10px 3%; justify-content: space-between; align-items: center; background: var(--paper); border: 1px solid var(--line); border-top: 0; flex-wrap: wrap; }
+.quoteTools label { display: flex; align-items: center; }
+.ticketTable { border-radius: 0 0 12px 12px; border-top: 0; }
+.ticketTable table { table-layout: fixed; background: var(--paper); }
+.ticketTable th, .ticketTable td { min-width: 0; border-color: var(--line); }
+.ticketTable th:first-child { width: clamp(94px, 15vw, 170px); background: var(--sage); }
+.ticketTable thead th { background: #f7f8ef; color: var(--ink); vertical-align: bottom; border-bottom: 1px solid #adbda0; }
+.ticketTable thead th + th, .ticketTable td + td { border-left: 1px solid #dbe2d4; }
+.ticketHead { display: grid; gap: 6px; text-align: left; }
+.ticketHead > img, .noPhoto { width: 100%; height: clamp(76px, 11vw, 135px); border-radius: 7px; }
+.ticketHead > img { object-fit: contain; background: #fcfbf7; }
+.noPhoto { font-size: 13px; justify-items: center; gap: 3px; font-weight: 400; }
+.ticketHead strong { font-size: 1.1rem; overflow-wrap: anywhere; }
+.ticketActions { display: flex; gap: 8px; flex-wrap: wrap; }
+.ticketActions button { padding: 0; }
+.ticketTable:has(th:nth-child(3)) table { min-width: 440px; }
+.ticketTable:has(th:nth-child(4)) table { min-width: 650px; }
+.aiNote { margin: 20px 0; padding: 20px; }
+.aiNote h2 { font-size: 1.15rem; }
+.aiNote p { margin: 8px 0 12px; }
+.aiAnswer { white-space: pre-wrap; }
+@media (max-width: 700px) {
+  .bar, .wrap { width: 92%; }
+  .wrap { padding-top: 17px; }
+  .tourGrid { grid-template-columns: 1fr; gap: 18px; }
+  .tourCover { display: flex; align-items: center; justify-content: space-between; }
+  .tourCover h1 { font-size: clamp(26px, 6vw, 36px); padding: 12px 0 12px 16px; }
+  .tourCover img { width: 46%; mask-image: linear-gradient(to right, transparent, black 20%); }
+  .nextVisit { padding: 8px 12px; margin-top: 9px; display: flex; align-items: center; gap: 10px; }
+  .nextVisit button { margin: 0; flex: 1; }
+  .nextVisit .dateChip { display: inline-flex; gap: 3px; align-items: center; }
+  .nextVisit .dateChip b { font: 650 15px/1.2 sans-serif; }
+  .nextVisit p { margin: 0; }
+  .stopBody { grid-template-columns: 48px 1fr 52px; gap: 9px; }
+  .stopBody > img, .stopBlank { width: 52px; height: 52px; }
+  .compareDock { flex-wrap: wrap; padding: 10px; }
+  .compareDock .primary { padding: 8px 10px; }
+  .ticketTable td, .ticketTable th { padding: 9px; }
+  .tourFilters { gap: 6px; }
+  .tourFilters select { font-size: .92rem; }
+}

@@ -13,7 +13,7 @@ export default function QuoteTable({chosen,all,onAdd,onRemove,onEdit,onBack}:Pro
   const others=all.filter(b=>b.category===category&&!chosen.some(c=>c.id===b.id));
   const common=(label:string,field:keyof Band,missing="확인 필요")=><tr key={field}><th scope="row">{label}</th>{chosen.map(b=><td key={b.id} className={!b[field]?"missing":""}>{field==="price"?priceLabel(b.price):field==="url"&&b.url?<a className="product" target="_blank" rel="noopener noreferrer" href={b.url}>링크 열기</a>:String(b[field]||missing)}</td>)}</tr>;
   return <section className="quotePage"><button className="backLink" onClick={onBack}>웨딩 투어로 돌아가기</button>
-    <header className="quoteHeading"><div><p className="sectionlabel">고양이 웨딩 여권</p><h1>{category} 견적 대조표</h1></div><img src="./passport.webp" alt="" /></header>
+    <header className="quoteHeading"><div><h1>{category} 견적 대조표</h1></div><img src="./garden-notebook.webp" width="900" height="600" alt=""/></header>
     <div className="quoteTools"><strong>비교 후보 {chosen.length} / 3</strong>{chosen.length<3&&others.length>0&&<label>후보 추가<select value="" onChange={e=>{if(e.target.value)onAdd(e.target.value);}}><option value="">같은 항목에서 고르기</option>{others.map(b=><option value={b.id} key={b.id}>{bandName(b)}</option>)}</select></label>}</div>
     <div className="tablewrap ticketTable" tabIndex={0} aria-label={category+" 후보별 견적 대조표"}><table>
     <thead><tr><th scope="col">상담 항목</th>{chosen.map(b=><th scope="col" key={b.id}><div className="ticketHead">
