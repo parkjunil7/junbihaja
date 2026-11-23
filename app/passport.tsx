@@ -23,7 +23,7 @@ export default function Passport(){
       if(result.error)throw Error("로그인 세션을 열지 못했어요.");
     }catch(e){setError(e instanceof Error?e.message:"로그인하지 못했어요.");}finally{setBusy(false);}
   }
-  if(member)return <Studio key={member} onLogout={async()=>{const result=await db.auth.signOut({scope:"local"});if(result.error)throw result.error;}}/>;
+  if(member)return <Studio key={member} memberId={member} onLogout={async()=>{const result=await db.auth.signOut({scope:"local"});if(result.error)throw result.error;}}/>;
   return <main className="gardenLogin"><article className="gardenCard">
     <header className="gardenPoster">
       <h1 className="sr">준비하자! 우리 둘의 웨딩 준비</h1>
